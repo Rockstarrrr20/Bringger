@@ -61,7 +61,7 @@
     <main id="main" class="main">
         <div class="pagetitle">    
     <h1>ADD A NEW SERVICE</h1>
-    <form action="/add_product" method="post" >
+    <form action="/add_product" method="post" enctype="multipart/form-data" >
         <br><br><label for="name">Enter service name</label>
         <input class="form-control" type="text" placeholder="Enter Service" name="name">
     
@@ -75,8 +75,12 @@
         <input class="form-control" type="number" placeholder="quantity" name="quantity">
 
         <br><br><label for="gender">Gender</label>
-        <input class="form-control" type="text" placeholder="Enter Duration" name="gender">
+        <input class="form-control" type="text" placeholder="Gender" name="gender">
+        <br><br><label for="gender">Item Images</label>
+          <input type="file" class="form-control" value = "editphoto" name="editphoto" accept="image/jpg">
+
    <br> <input class= bu type="submit">
+
        </form>
     </div>
     </main>

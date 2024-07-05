@@ -109,7 +109,7 @@
                     <td><%=dataobj.category%></td>
                     <td><%=dataobj.Quantity%></td>
                     <%id=dataobj._id.toString();%>
-                    <td><form  action= "/updateproduct" method="post">
+                    <td><form  action= "/updateproduct_page" method="post">
                       <input type="hidden" name="id" value="<%=id%>" />
                       <button type="submit"value="update">Update</button></td>
                     </form>

@@ -30,6 +30,13 @@ exports.register_data_save = async (req, res) => {
 exports.login = async (req, res) => {
   res.render("sellerlogin");
 };
+
+exports.faq = async (req, res) => {
+  res.render("FAQ",{data:req.user});
+};
+exports.contact = async (req, res) => {
+  res.render("contact",{data:req.user});
+};
 //login
 exports.login_data_validation = async (req, res) => {
   let data = await login_data_validation(req, res);
@@ -42,6 +49,7 @@ exports.login_data_validation = async (req, res) => {
 //dashboard
 exports.dashboard=async(req,res)=>{
   if (req.user) {
+    console.log(req.user)
     res.render("dashboard", { data:req.user });
   } else {
     res.send({ staus: 400, message: "not regisred", data: [], sucess: false });
@@ -61,7 +69,6 @@ exports.addproduct = async (req, res) => {
   let data = await addproduct(req, res);
 
   if (data.sucess) {
-    console.log(data.sucess);
     // req.flash("success","data add succesfully")
     res.redirect("/viewproduct");
   } else {
@@ -110,7 +117,7 @@ exports.signout = async (req, res) => {
 };
 //profile update page
 exports.profileupdate = async (req, res) => {
-  res.render("profileupdate");
+  res.render("profileupdate",{data:req.user});
 };
 //update profile
 exports.update_profile = async (req, res) => {
@@ -133,12 +140,10 @@ exports.sellerprofile = async (req, res) => {
 };
 //verify otp
 exports.verify_otp = async (req, res) => {
-  res.locals.message = req.flash();
   let data = await verify_otp(req, res);
   if (data.sucess) {
     res.render("sellerlogin");
   } else {
-
     res.render("register");
   }
 };

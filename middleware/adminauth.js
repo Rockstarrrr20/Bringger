@@ -10,10 +10,10 @@ module.exports = async (req, res, next) => {
       if (req.user) {
         next();
       } else {
-        res.render("login");
+        res.render("sellerlogin");
       }
     } else {
-      res.render("login");
+      res.render("sellerlogin");
     }
   } catch (error) {
     console.log(error);

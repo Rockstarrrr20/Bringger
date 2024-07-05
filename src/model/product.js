@@ -1,8 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+var ObjectId = require('mongodb').ObjectId;
 
 let answer = new Schema(
   {
+    seller_id: ObjectId,
+
     p_name: {
       type: String,
       default: "no name",
@@ -23,7 +26,12 @@ let answer = new Schema(
     gender: {
       type: String,
       default: null,
-    }
+    },
+    p_image: {
+      type: String,
+      default: null,
+    },
+
 
   },
   {
