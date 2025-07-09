@@ -49,7 +49,9 @@ exports.register_data_save = async (req) => {
       password: pass,
       mobile: number,
       otp: otp,
-      img: 'image.png'
+      img: 'image.png',
+      insta: null,
+      fb: null,
     });
 
     let saved_data = await savedata.save();
@@ -362,15 +364,20 @@ exports.sellerprofile = async (req, res) => {
 exports.update_profile = async (req, res) => {
   try {
     if (req.user) {
+      console.log(req.body);
       let name = req.body.name;
       let mobile = req.body.mobile;
       let image = req.file.filename;
-      let email = req.file.email;
+      let email = req.body.email;
+      let insta = req.body.insta;
+      let fb = req.body.fb;
       let updatedata = await sellerModel.findOneAndUpdate({ auth_key: req.user.auth_key }, {
         name: name,
         mobile: mobile,
         img: image,
-        email: email
+        email: email,
+        insta: insta,
+        fb:fb
       });
 
 

@@ -123,7 +123,7 @@ exports.profileupdate = async (req, res) => {
 exports.update_profile = async (req, res) => {
   let data = await update_profile(req);
   if (data.sucess) {
-    res.render("sellerprofile", { data });
+    res.render("dashboard", { data });
   } else {
     res.send({ staus: 400, message: "not regisred", data: [], sucess: false });
   }

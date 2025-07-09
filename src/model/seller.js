@@ -43,6 +43,14 @@ let answer = new Schema(
       type: String,
       default: null,
     },
+    insta: {
+      type: String,
+      default: null,
+    },
+    fb:{
+      type: String,
+      default: null,
+    }
   },
   {
     timestamps: true,
